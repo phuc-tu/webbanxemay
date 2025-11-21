@@ -39,7 +39,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id_admin`, `username`, `password`, `admin_status`) VALUES
-(2, 'toan', 'e10adc3949ba59abbe56e057f20f883e', 1),
+(2, 'admin', '202cb962ac59075b964b07152d234b70', 1),
 (4, 'quangtho', '8354fc5d09cea4c7ef762db97f2c5674', 1);
 
 -- --------------------------------------------------------
@@ -219,6 +219,7 @@ INSERT INTO `tbl_lienhe` (`id_lienhe`, `thongtinlienhe`, `gioithieu`) VALUES
 -- --------------------------------------------------------
 
 --
+
 -- Cấu trúc bảng cho bảng `tbl_sanpham`
 --
 
