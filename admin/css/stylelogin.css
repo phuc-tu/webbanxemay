@@ -1,5 +1,22 @@
 body {
-    background: #bda6a6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
   }
   .animate {
     -webkit-transition: all 0.3s linear;
@@ -57,14 +74,24 @@ body {
   }
   button {
     cursor: pointer;
-    background: #00A885;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
     width: 100%;
     border: 0;
-    padding: 10px 15px;
+    border-radius: 25px;
+    padding: 15px 20px;
     color: #fff;
-    font-size: 20px;
-    -webkit-transition: 0.3s linear;
-    transition: 0.3s linear;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(45deg, #764ba2 0%, #667eea 100%);
   }
   span.validate-tooltip {
     background: #D91717;
@@ -100,51 +127,69 @@ body {
     outline: none;
     display: block;
     width: 100%;
-    height: 40px;
+    height: 50px;
     position: relative;
     z-index: 3;
-    border: 1px solid #d9d9d9;
-    padding: 10px 10px;
-    background: #ffffff;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 10px;
+    padding: 15px 15px;
+    background: rgba(255, 255, 255, 0.9);
     box-sizing: border-box;
-    font-wieght: 400;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+    font-weight: 400;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: #fff;
   }
   .input-group .lighting {
-    background: #00A885;
+    background: linear-gradient(45deg, #667eea, #764ba2);
     width: 0;
-    height: 2px;
+    height: 3px;
     display: inline-block;
     position: absolute;
-    top: 40px;
+    top: 47px;
     left: 0;
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear;
+    border-radius: 2px;
+    transition: all 0.3s ease;
   }
   .input-group.focused .lighting {
     width: 100%;
   }
   .input-group.focused label {
-    background: #fff;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-size: 12px;
     top: -8px;
     left: 5px;
-    color: #00A885;
+    font-weight: 600;
   }
   .input-group span.validate-tooltip {
     margin-top: 0;
   }
   .wrapper {
-    width: 320px;
-    background: #fff;
-    margin: 20px auto;
+    width: 380px;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 50px auto;
     min-height: 200px;
-    border: 1px solid #f3f3f3;
+    border: none;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
   }
   .wrapper .inner-warpper {
-    padding: 50px 30px 60px;
-    box-shadow: 1px 1.732px 10px 0px rgba(0, 0, 0, 0.063);
+    padding: 60px 40px 70px;
+    box-shadow: none;
   }
   .wrapper .title {
     margin-top: 0;
@@ -211,4 +256,54 @@ body {
     .direction {
       position: static;
     }
+    
+    .wrapper {
+      width: 95%;
+      margin: 20px auto;
+    }
+    
+    .wrapper .inner-warpper {
+      padding: 40px 25px 50px;
+    }
+  }
+  
+  /* Animation enhancements */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+    50% {
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    }
+    100% {
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+  }
+  
+  .wrapper {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  button:hover {
+    animation: pulse 2s infinite;
+  }
+  
+  .logo h1 {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
